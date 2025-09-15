@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Passed questions and answers on Federal University, Lokoja Kogi</title>
+  <meta name="description" content="Passed questions and answers - Federal University, Lokoja Kogi. Register, upload and browse past questions by level, year and department." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#E8F6FF; /* soft light blue */
+      --accent:#1E90FF; /* dodger-ish blue */
+      --accent-2:#6EC1FF;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.7);
+      --success:#16a34a;
+      --danger:#ef4444;
+      font-family: 'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#ffffff 60%);color:#0f172a;}
+    .container{max-width:1100px;margin:28px auto;padding:20px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px}
+    h1.site-title{margin:0;font-size:20px}
+    p.site-sub{margin:0;color:var(--muted);font-size:13px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
+    .hero-card{background:var(--card);padding:28px;border-radius:16px;box-shadow:0 8px 30px rgba(16,24,40,0.06)}
+    .hero h2{margin:0 0 8px;font-size:28px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
+    .btn-secondary{background:transparent;border:1px solid rgba(30,144,255,0.12);color:var(--accent)}
+
+    /* Social links */
+    .socials{display:flex;gap:8px;margin-top:10px}
+    .socials a{padding:8px 10px;border-radius:8px;background:var(--glass);text-decoration:none;color:var(--accent);font-weight:600;font-size:13px}
+
+    /* Bio + testimonials */
+    .right-panel{display:flex;flex-direction:column;gap:12px}
+    .bio{background:linear-gradient(180deg,rgba(30,144,255,0.06),rgba(110,193,255,0.03));padding:16px;border-radius:12px}
+    .bio h3{margin:0 0 6px}
+    .bio p{margin:0;color:var(--muted)}
+    .phone{font-weight:700;color:var(--accent)}
+
+    /* Testimonials slider */
+    .testimonials{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 8px 18px rgba(16,24,40,0.04)}
+    .test-list{position:relative;overflow:hidden;height:120px}
+    .test-slide{position:absolute;inset:0;padding:12px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;transition:transform 0.5s ease,opacity 0.5s ease}
+    .test-slide p{margin:0;color:var(--muted)}
+    .test-slide strong{display:block;margin-bottom:6px}
+
+    /* Steps / multi-page */
+    .stepper{display:flex;gap:8px;align-items:center;margin:14px 0}
+    .step{flex:1;background:linear-gradient(90deg,#e6f5ff,transparent);height:10px;border-radius:8px;position:relative}
+    .step .fill{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:8px;width:0%}
+
+    /* Forms */
+    form{display:grid;gap:12px}
+    label{font-size:13px;color:var(--muted);display:block}
+    input[type=text],input[type=email],input[type=password],select{padding:12px;border-radius:10px;border:1px solid #e6eef9;background:white}
+    .row{display:flex;gap:12px}
+
+    /* Footer small */
+    footer{margin-top:28px;padding:12px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    /* Dashboard */
+    .dashboard{display:grid;grid-template-columns:260px 1fr;gap:18px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 8px 20px rgba(16,24,40,0.04)}
+    .nav-list{display:flex;flex-direction:column;gap:8px}
+    .nav-btn{padding:10px;border-radius:8px;border:0;background:transparent;text-align:left;cursor:pointer}
+    .active{background:linear-gradient(90deg,var(--accent-2),#d8f1ff)}
+
+    /* Posts grid */
+    .posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .post{padding:12px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#f8fcff);border:1px solid rgba(30,144,255,0.04)}
+    .post img{max-width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .post small{color:var(--muted)}
+
+    /* Upload */
+    .upload-row{display:flex;gap:8px;align-items:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .dashboard{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">PF</div>
+        <div>
+          <h1 class="site-title">Passed questions and answers on Federal University, Lokoja Kogi</h1>
+          <p class="site-sub">A community-driven repository of past questions — created by students for students</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary" id="open-register">Get Started</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-card hero">
+        <div>
+          <h2>Pass your exams with confidence</h2>
+          <p>Browse and upload past questions & answers for Federal University, Lokoja Kogi — organized by level, year and department.</p>
+          <div class="cta-row">
+            <button class="btn btn-primary" id="cta-start">Get Start</button>
+            <a class="btn" href="#posts-sample" style="background:transparent;color:var(--muted)">Explore samples</a>
+          </div>
+
+          <div class="socials" style="margin-top:18px">
+            <a href="https://wa.link/fneymp" target="_blank">WhatsApp</a>
+            <a href="https://www.facebook.com/stephen.anthony.970293" target="_blank">Facebook</a>
+            <a href="https://youtube.com/@stephenotoaye?si=poXVn-9zZxxEmqgH" target="_blank">YouTube</a>
+            <a href="https://x.com/Stephenotoaye?s=09" target="_blank">X / Twitter</a>
+          </div>
+
+        </div>
+
+        <aside class="right-panel">
+          <div class="bio card">
+            <h3>About Stephen</h3>
+            <p>Hi — I'm <strong>Stephen</strong>. I'm a student of Federal University, Lokoja Kogi and a friend to all students looking to pass their exams. Join the community and share past questions to help others succeed.</p>
+            <p style="margin-top:8px">Phone: <span class="phone">07048548212</span></p>
+            <p style="margin-top:8px;color:var(--muted);font-size:13px">Connect: <a href="https://wa.link/fneymp" target="_blank">WhatsApp</a> • <a href="https://www.facebook.com/stephen.anthony.970293" target="_blank">Facebook</a> • <a href="https://youtube.com/@stephenotoaye?si=poXVn-9zZxxEmqgH" target="_blank">YouTube</a></p>
+          </div>
+
+          <div class="testimonials card">
+            <h4 style="margin:0 0 8px">What students say</h4>
+            <div class="test-list" id="test-list">
+              <div class="test-slide" data-index="0">
+                <strong>Maria - Computer Science</strong>
+                <p>"The past questions here helped me score A in Database Systems. Very useful and well organized."</p>
+              </div>
+              <div class="test-slide" data-index="1" style="opacity:0;transform:translateY(12px)">
+                <strong>Emeka - Microbiology</strong>
+                <p>"Easy to register and upload. I found previous year questions that I couldn't find anywhere else."</p>
+              </div>
+              <div class="test-slide" data-index="2" style="opacity:0;transform:translateY(12px)">
+                <strong>Fatima - Mass Communication</strong>
+                <p>"Love the clean design and the ability to post PDFs. Great resource for students!"</p>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </section>
+
+      <!-- Multi-page SPA sections (hidden/shown with JS) -->
+
+      <!-- Page 2: Registration details -->
+      <section id="page-register" class="hero-card" style="margin-top:20px;display:none">
+        <h2>Degree program registration</h2>
+        <p style="color:var(--muted)">Affiliated to Federal University, Lokoja Kogi</p>
+
+        <div class="stepper">
+          <div class="step"><div class="fill" id="progress-fill" style="width:80%"></div></div>
+          <div style="min-width:60px;text-align:right;color:var(--muted);font-weight:700">80%</div>
+        </div>
+
+        <div class="hero" style="grid-template-columns:1fr">
+          <div class="hero-card">
+            <form id="register-form">
+              <label>Full name
+                <input type="text" id="reg-fullname" required placeholder="Your full name" />
+              </label>
+              <label>Email address
+                <input type="email" id="reg-email" required placeholder="you@school.edu" />
+              </label>
+              <div class="row">
+                <label style="flex:1">Class / Level
+                  <select id="reg-level">
+                    <option>100</option>
+                    <option>200</option>
+                    <option>300</option>
+                    <option>400</option>
+                  </select>
+                </label>
+                <label style="flex:1">Department
+                  <select id="reg-dept">
+                    <option>Computer Science</option>
+                    <option>Microbiology</option>
+                    <option>Public Administration</option>
+                    <option>Mass Communication</option>
+                    <option>Banking and Finance</option>
+                    <option>Biochemistry</option>
+                    <option>Industrial Chemistry</option>
+                    <option>Statistics</option>
+                  </select>
+                </label>
+              </div>
+
+              <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+                <button class="btn btn-primary" type="button" id="to-create-password">Continue</button>
+                <button class="btn btn-secondary" type="button" id="open-login-from-register">Already have an account? Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 3: Create password -->
+      <section id="page-create-password" class="hero-card" style="margin-top:20px;display:none">
+        <h2>Create a secure password</h2>
+        <p style="color:var(--muted)">Choose a password to finish registration</p>
+        <div class="hero" style="grid-template-columns:1fr">
+          <div class="hero-card">
+            <form id="create-pass-form">
+              <label>New password
+                <input type="password" id="new-pass" required placeholder="Choose a strong password" />
+              </label>
+              <label>Confirm password
+                <input type="password" id="confirm-pass" required placeholder="Re-type password" />
+              </label>
+
+              <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+                <button class="btn btn-primary" type="button" id="finish-register">Finish and Register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 4: You can now log in -->
+      <section id="page-login" class="hero-card" style="margin-top:20px;display:none">
+        <h2>Login</h2>
+        <p style="color:var(--muted)">Login with your email or full name and password</p>
+        <div class="hero" style="grid-template-columns:1fr">
+          <div class="hero-card">
+            <form id="login-form">
+              <label>Email or Full name
+                <input type="text" id="login-identifier" required placeholder="Email or full name" />
+              </label>
+              <label>Password
+                <input type="password" id="login-password" required placeholder="Your password" />
+              </label>
+              <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+                <button class="btn btn-primary" type="button" id="do-login">Login</button>
+                <button class="btn btn-secondary" type="button" id="open-register-from-login">Register</button>
+              </div>
+            </form>
+            <p id="login-msg" style="color:var(--danger);display:none;margin-top:8px"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 5: Dashboard / view past questions -->
+      <section id="page-dashboard" style="display:none;margin-top:20px">
+        <div class="dashboard">
+          <aside class="card">
+            <h4 style="margin-top:0">Hello, <span id="user-firstname">Student</span></h4>
+            <div class="nav-list" style="margin-top:8px">
+              <button class="nav-btn active" data-view="browse" id="nav-browse">Browse past questions</button>
+              <button class="nav-btn" data-view="upload" id="nav-upload">Post a past question</button>
+              <button class="nav-btn" data-view="my-posts" id="nav-myposts">My posts</button>
+              <button class="nav-btn" data-view="logout" id="nav-logout">Logout</button>
+            </div>
+
+            <div style="margin-top:12px">
+              <small style="color:var(--muted)">Filter by:</small>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <select id="filter-level"><option value="">All levels</option><option>100</option><option>200</option><option>300</option><option>400</option></select>
+                <select id="filter-dept"><option value="">All departments</option><option>Computer Science</option><option>Microbiology</option><option>Public Administration</option><option>Mass Communication</option><option>Banking and Finance</option><option>Biochemistry</option><option>Industrial Chemistry</option><option>Statistics</option></select>
+              </div>
+            </div>
+          </aside>
+
+          <div>
+            <div id="browse" class="card view-panel">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                <h3 style="margin:0">Passed Questions</h3>
+                <div>
+                  <select id="filter-year"><option value="">All years</option><option>2024/2025</option><option>2025/2026</option></select>
+                </div>
+              </div>
+
+              <div id="posts-sample" class="posts" aria-live="polite">
+                <!-- Posts will be injected here -->
+              </div>
+
+            </div>
+
+            <div id="upload" class="card view-panel" style="display:none">
+              <h3>Post a past question</h3>
+              <form id="post-form">
+                <label>Title
+                  <input type="text" id="post-title" required placeholder="e.g. Database Systems - 2019" />
+                </label>
+                <div class="row">
+                  <label style="flex:1">Level
+                    <select id="post-level"><option>100</option><option>200</option><option>300</option><option>400</option></select>
+                  </label>
+                  <label style="flex:1">Department
+                    <select id="post-dept"><option>Computer Science</option><option>Microbiology</option><option>Public Administration</option><option>Mass Communication</option><option>Banking and Finance</option><option>Biochemistry</option><option>Industrial Chemistry</option><option>Statistics</option></select>
+                  </label>
+                </div>
+                <label>Year
+                  <select id="post-year"><option>2024/2025</option><option>2025/2026</option></select>
+                </label>
+                <label>Upload image or PDF (optional)
+                  <input type="file" id="post-file" accept="image/*,.pdf" />
+                </label>
+                <label>Description (optional)
+                  <input type="text" id="post-desc" placeholder="Short description or subjects covered" />
+                </label>
+                <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+                  <button class="btn btn-primary" type="button" id="submit-post">Post</button>
+                </div>
+                <p id="post-msg" style="color:var(--success);display:none;margin-top:8px"></p>
+              </form>
+            </div>
+
+            <div id="my-posts" class="card view-panel" style="display:none">
+              <h3>My posts</h3>
+              <div class="posts" id="my-posts-list"></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <small>Created by Stephen — Federal University, Lokoja Kogi • Phone: 07048548212 • <a href="https://wa.link/fneymp" target="_blank">WhatsApp</a></small>
+    </footer>
+  </div>
+
+  <script>
+    /********************* Simple SPA + storage ***********************/
+    const cta = document.getElementById('cta-start');
+    const openRegister = document.getElementById('open-register');
+    const pageRegister = document.getElementById('page-register');
+    const pageCreatePass = document.getElementById('page-create-password');
+    const pageLogin = document.getElementById('page-login');
+    const pageDashboard = document.getElementById('page-dashboard');
+
+    const show = (el)=>{ el.style.display='block'; el.scrollIntoView({behavior:'smooth'}); }
+    const hide = (el)=> el.style.display='none';
+
+    cta.addEventListener('click', ()=>{ show(pageRegister); });
+    openRegister.addEventListener('click', ()=>{ show(pageRegister); });
+
+    // move to create password
+    document.getElementById('to-create-password').addEventListener('click', ()=>{
+      // store temporary registration details
+      const name = document.getElementById('reg-fullname').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      if(!name || !email){ alert('Please fill your name and email'); return; }
+      const level = document.getElementById('reg-level').value;
+      const dept = document.getElementById('reg-dept').value;
+      localStorage.setItem('tempReg', JSON.stringify({name,email,level,dept}));
+      show(pageCreatePass);
+    });
+
+    document.getElementById('finish-register').addEventListener('click', ()=>{
+      const pass = document.getElementById('new-pass').value;
+      const confirm = document.getElementById('confirm-pass').value;
+      if(pass.length < 6){ alert('Password should be at least 6 characters'); return; }
+      if(pass !== confirm){ alert('Passwords do not match'); return; }
+      const temp = JSON.parse(localStorage.getItem('tempReg') || '{}');
+      if(!temp.name){ alert('No registration in progress'); return; }
+      // Save user
+      const users = JSON.parse(localStorage.getItem('fup_users') || '[]');
+      // check if email/name exists
+      if(users.some(u=>u.email===temp.email || u.name.toLowerCase()===temp.name.toLowerCase())){ alert('User already exists. Try logging in.'); return; }
+      users.push({id:Date.now(),name:temp.name,email:temp.email,level:temp.level,dept:temp.dept,password:pass});
+      localStorage.setItem('fup_users', JSON.stringify(users));
+      localStorage.removeItem('tempReg');
+      alert('Registration successful! You can now login.');
+      show(pageLogin);
+    });
+
+    // open login from register
+    document.getElementById('open-login-from-register').addEventListener('click', ()=>{ show(pageLogin); });
+    document.getElementById('open-register-from-login').addEventListener('click', ()=>{ show(pageRegister); });
+
+    // login
+    document.getElementById('do-login').addEventListener('click', ()=>{
+      const id = document.getElementById('login-identifier').value.trim();
+      const pass = document.getElementById('login-password').value;
+      const users = JSON.parse(localStorage.getItem('fup_users') || '[]');
+      const user = users.find(u=> (u.email===id || u.name.toLowerCase()===id.toLowerCase()) && u.password===pass);
+      const msg = document.getElementById('login-msg');
+      if(!user){ msg.style.display='block'; msg.textContent='Invalid credentials'; return; }
+      msg.style.display='none';
+      localStorage.setItem('fup_current', JSON.stringify(user));
+      enterDashboard(user);
+    });
+
+    function enterDashboard(user){
+      hide(pageRegister); hide(pageCreatePass); hide(pageLogin);
+      show(pageDashboard);
+      document.getElementById('user-firstname').textContent = user.name.split(' ')[0] || user.name;
+      loadPosts(); loadMyPosts();
+    }
+
+    // Navigation inside dashboard
+    document.querySelectorAll('.nav-btn').forEach(b=>b.addEventListener('click', (e)=>{
+      const view = e.currentTarget.dataset.view;
+      document.querySelectorAll('.nav-btn').forEach(n=>n.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      document.querySelectorAll('.view-panel').forEach(v=>v.style.display='none');
+      if(view==='browse') document.getElementById('browse').style.display='block';
+      if(view==='upload') document.getElementById('upload').style.display='block';
+      if(view==='my-posts') document.getElementById('my-posts').style.display='block';
+      if(view==='logout') { localStorage.removeItem('fup_current'); location.reload(); }
+    }));
+
+    // Posts storage and rendering
+    function loadPosts(){
+      const postsDiv = document.getElementById('posts-sample');
+      postsDiv.innerHTML='';
+      const all = JSON.parse(localStorage.getItem('fup_posts') || '[]');
+      const filterLevel = document.getElementById('filter-level').value;
+      const filterDept = document.getElementById('filter-dept').value;
+      const filterYear = document.getElementById('filter-year').value;
+      const filtered = all.filter(p=> (filterLevel? p.level===filterLevel:true) && (filterDept? p.dept===filterDept:true) && (filterYear? p.year===filterYear:true));
+      if(filtered.length===0) postsDiv.innerHTML='<p style="color:var(--muted)">No posts yet. Be the first to post!</p>';
+      filtered.reverse().forEach(p=>{
+        const el = document.createElement('div'); el.className='post';
+        let media = '';
+        if(p.fileData){
+          if(p.fileType && p.fileType.includes('image')) media = `<img src="${p.fileData}" alt="post" />`;
+          else media = `<div style="padding:18px;background:#f3f9ff;border-radius:8px;text-align:center">PDF attached - <a href='${p.fileData}' target='_blank' download>Download</a></div>`;
+        }
+        el.innerHTML = `${media}<h4 style="margin:8px 0 6px">${escapeHtml(p.title)}</h4><small>${p.level} • ${p.dept} • ${p.year}</small><p style="margin-top:8px;color:var(--muted)">${escapeHtml(p.desc||'')}</p>`;
+        postsDiv.appendChild(el);
+      });
+    }
+
+    // filters
+    document.getElementById('filter-level').addEventListener('change', loadPosts);
+    document.getElementById('filter-dept').addEventListener('change', loadPosts);
+    document.getElementById('filter-year').addEventListener('change', loadPosts);
+
+    // Submit post
+    document.getElementById('submit-post').addEventListener('click', ()=>{
+      const current = JSON.parse(localStorage.getItem('fup_current') || 'null');
+      if(!current){ alert('Please login to post'); return; }
+      const title = document.getElementById('post-title').value.trim();
+      const level = document.getElementById('post-level').value;
+      const dept = document.getElementById('post-dept').value;
+      const year = document.getElementById('post-year').value;
+      const desc = document.getElementById('post-desc').value.trim();
+      const file = document.getElementById('post-file').files[0];
+      if(!title){ alert('Please add a title'); return; }
+      const reader = new FileReader();
+      reader.onload = function(e){
+        const data = e.target.result;
+        const posts = JSON.parse(localStorage.getItem('fup_posts') || '[]');
+        const post = {id:Date.now(),userId:current.id,title,level,dept,year,desc,fileData:data,fileType:file?file.type:null,ownerName:current.name};
+        posts.push(post);
+        localStorage.setItem('fup_posts', JSON.stringify(posts));
+        document.getElementById('post-msg').style.display='block';
+        document.getElementById('post-msg').textContent='Post uploaded successfully';
+        document.getElementById('post-form').reset();
+        loadPosts(); loadMyPosts();
+        setTimeout(()=>{ document.getElementById('post-msg').style.display='none'; },2500);
+      }
+      if(file) reader.readAsDataURL(file);
+      else { // no file
+        const posts = JSON.parse(localStorage.getItem('fup_posts') || '[]');
+        const post = {id:Date.now(),userId:current.id,title,level,dept,year,desc,fileData:null,fileType:null,ownerName:current.name};
+        posts.push(post);
+        localStorage.setItem('fup_posts', JSON.stringify(posts));
+        document.getElementById('post-msg').style.display='block';
+        document.getElementById('post-msg').textContent='Post uploaded successfully';
+        document.getElementById('post-form').reset();
+        loadPosts(); loadMyPosts();
+        setTimeout(()=>{ document.getElementById('post-msg').style.display='none'; },2500);
+      }
+    });
+
+    function loadMyPosts(){
+      const cur = JSON.parse(localStorage.getItem('fup_current') || 'null');
+      const myDiv = document.getElementById('my-posts-list');
+      myDiv.innerHTML='';
+      if(!cur) { myDiv.innerHTML='<p style="color:var(--muted)">Please login to view your posts.</p>'; return; }
+      const posts = JSON.parse(localStorage.getItem('fup_posts') || '[]').filter(p=>p.userId===cur.id).reverse();
+      if(posts.length===0) myDiv.innerHTML='<p style="color:var(--muted)">You have not posted anything yet.</p>';
+      posts.forEach(p=>{
+        const el = document.createElement('div'); el.className='post';
+        let media = '';
+        if(p.fileData){
+          if(p.fileType && p.fileType.includes('image')) media = `<img src="${p.fileData}" alt="post" />`;
+          else media = `<div style="padding:18px;background:#f3f9ff;border-radius:8px;text-align:center">PDF attached - <a href='${p.fileData}' target='_blank' download>Download</a></div>`;
+        }
+        el.innerHTML = `${media}<h4 style="margin:8px 0 6px">${escapeHtml(p.title)}</h4><small>${p.level} • ${p.dept} • ${p.year}</small><p style="margin-top:8px;color:var(--muted)">${escapeHtml(p.desc||'')}</p>`;
+        myDiv.appendChild(el);
+      });
+    }
+
+    // XSS escape
+    function escapeHtml(str){ if(!str) return ''; return str.replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m]; }); }
+
+    // Testimonials auto-rotate
+    (function rotateTestimonials(){
+      const slides = Array.from(document.querySelectorAll('.test-slide'));
+      let i=0; setInterval(()=>{
+        slides.forEach(s=>{ s.style.opacity='0'; s.style.transform='translateY(12px)'; });
+        slides[i].style.opacity='1'; slides[i].style.transform='translateY(0)';
+        i = (i+1) % slides.length;
+      },3500);
+    })();
+
+    // Load any existing logged in user
+    (function init(){
+      const cur = JSON.parse(localStorage.getItem('fup_current') || 'null');
+      if(cur) enterDashboard(cur);
+      else { /* show landing */ }
+      loadPosts();
+    })();
+
+    // small helper: auto-open registration on pressing Get Started in header
+    document.getElementById('open-register').addEventListener('click', ()=>{ show(pageRegister); });
+
+  </script>
+</body>
+</html>
